@@ -1,43 +1,63 @@
-OMXPlayer
-=========
+omxplayer-native-build
+======================
 
 OMXPlayer is a commandline OMX player for the Raspberry Pi. It was developed as
 a testbed for the XBMC Raspberry PI implementation and is quite handy to use
 standalone. 
 
-Downloading OMXPlayer
----------------------
+omxplayer-native-build is a fork from the original omxplayer located at: 
+https://github.com/huceke/omxplayer/. The Makefiles in this project have been
+customized to support building the project on the Raspberry Pi, instead of 
+cross-compiling them on another machine. 
 
-    git clone git://github.com/huceke/omxplayer.git
+Other differences:
 
-Compiling OMXPlayer
--------------------
+The default output is HDMI, so using omxplayer -o hdmi video.mp4, is not necessary,
+just omxplayer video.mp4. On the other hand, if you want audio output from the 
+jack, then you need to use omxplayer -o local video.mp4.
 
-### Cross Compiling
+The default location for the project to be downloaded and built from is /usr/local/src
+on the Raspberry Pi.
 
-You need the content of your sdcard somewhere mounted or copied. There might be
-development headers to install on the running Pi system for the crosscompiling.
+The default location for the omxplayer script and omxplayer.bin is /usr/local/bin instead
+of /usr/bin.
 
-Edit Makefile.include and change the settings according your locations.
+The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/lib/omxplayer.
 
-### Compiling on the Pi
+The Raspberry Pi firmware is downloaded from it's github repository and used during the build.
 
-You can also compile it on the PI the native way ;)
+The build of ffmpeg using the optimized libraries is performed.
 
-Running OMXPlayer
------------------
+Several additional libraries are enabled to include OpenJPEG, Vorbis, and OggTheora support.
 
-    make ffmpeg
+
+Downloading omxplayer-native-build
+----------------------------------
+
+    sudo chown pi:pi /usr/local/src
+    cd /usr/local/src
+    git clone git://github.com/wrightrocket/omxplayer-native-build.git
+
+Compiling omxplayer-native-build
+--------------------------------
+
+    cd /usr/local/src/omxplayer-native-build
+    make git
+    make -f Makefile.ffmpeg
     make
     make dist
+    
 
-Installing OMXPlayer
---------------------
+Installing omxplayer-native-build
+---------------------------------
 
-Copy over `omxplayer-dist/*` to the Pi `/`.
+If you have completed compiling omxplayer-native-build, then 
 
-Using OMXPlayer
----------------
+    sudo make install
+    
+
+Using omxplayer-native-build
+----------------------------
 
     Usage: omxplayer [OPTIONS] [FILE]
     Options :
@@ -56,5 +76,5 @@ Using OMXPlayer
 
 For example:
 
-    ./omxplayer -p -o hdmi test.mkv
+    ./omxplayer -o local test.mkv
 

@@ -49,14 +49,26 @@ Compiling omxplayer-native-build
     make git
     make -f Makefile.ffmpeg
     make
+    make dist
 
 Installing omxplayer-native-build
 ---------------------------------
 If you have completed compiling omxplayer-native-build:
 
-    make dist
     sudo make install
+
+Uninstalling omxplayer-native-build
+-----------------------------------
+If you have compiled and installed omxplayer-native-build, but not cleaned the build directory:
+
+    sudo make uninstall
     
+Cleaning the omxplayer-native-build
+-----------------------------------
+If you have completed compiling omxplayer-native-build, and are sure you don't want to uninstall 
+omxplayer without re-compiling it:
+    
+    make clean
 
 Using omxplayer-native-build
 ----------------------------

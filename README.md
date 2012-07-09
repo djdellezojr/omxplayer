@@ -24,11 +24,9 @@ of /usr/bin.
 
 The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/lib/omxplayer.
 
-The Raspberry Pi firmware is downloaded from it's github repository and used during the build.
+The Raspberry Pi firmware library is downloaded from it's github repository and used during the build.
 
 The build of ffmpeg using the optimized libraries is performed.
-
-Several additional libraries are enabled to include OpenJPEG, Vorbis, and OggTheora support.
 
 
 Downloading omxplayer-native-build
@@ -45,7 +43,7 @@ Compiling omxplayer-native-build
     make git
     make -f Makefile.ffmpeg
     make
-    make dist
+
     
 
 Installing omxplayer-native-build
@@ -53,6 +51,7 @@ Installing omxplayer-native-build
 
 If you have completed compiling omxplayer-native-build, then 
 
+    make dist
     sudo make install
     
 
@@ -77,4 +76,5 @@ Using omxplayer-native-build
 For example:
 
     ./omxplayer -o local test.mkv
+    omxplayer video.mp4
 

@@ -62,7 +62,7 @@ bool              m_bMpeg               = false;
 bool               m_passthrough        = false;
 bool              m_Deinterlace         = false;
 bool              m_HWDecode            = false;
-std::string       deviceString          = "omx:local";
+std::string       deviceString          = "omx:hdmi";
 int               m_use_hw_audio        = false;
 bool              m_Pause               = false;
 OMXReader         m_omx_reader;

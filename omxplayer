@@ -7,14 +7,18 @@ FBSET="/usr/sbin/fbset"
 
 if [ -e /usr/bin/omxplayer.bin ]; then
   OMXPLAYER="/usr/bin/omxplayer.bin"
+elif [ -e /usr/local/bin/omxplayer.bin ]; then
+  OMXPLAYER="/usr/local/bin/omxplayer.bin"
 else
   OMXPLAYER="./omxplayer.bin"
 fi
 
 if [ -e /usr/lib/omxplayer ]; then
   export LD_LIBRARY_PATH=/opt/vc/lib:/usr/lib/omxplayer:$LD_LIBRARY_PATH 
+elif [ -e /usr/local/lib ]; then
+  export LD_LIBRARY_PATH=/opt/vc/lib:/usr/local/lib:$LD_LIBRARY_PATH 
 else
-  export LD_LIBRARY_PATH=$PWD/ffmpeg_compiled/usr/local/lib:/opt/vc/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/local/src/omxplayer/ffmpeg_compiled/usr/local/lib:/opt/vc/lib:$LD_LIBRARY_PATH
 fi
 
 XRES=1920

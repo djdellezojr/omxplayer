@@ -6,9 +6,12 @@ a testbed for the XBMC Raspberry PI implementation and is quite handy to use
 standalone. 
 
 omxplayer-native-build is a fork from the original omxplayer located at: 
-https://github.com/huceke/omxplayer/. The Makefiles in this project have been
-customized to support building the project on the Raspberry Pi, instead of 
-cross-compiling them on another machine. 
+https://github.com/huceke/omxplayer/ and is located at: 
+https://github.com/wrightrocket/omxplayer-native-build. 
+
+The Makefiles of the omxplayer-native-build project have been
+customized to support building the project on the Raspberry Pi, 
+instead of defaulting to cross-compiling them on another system. 
 
 Other differences:
 
@@ -27,27 +30,29 @@ The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/
 The Raspberry Pi firmware library is downloaded from it's github repository and used during the build.
 
 
+Installing dependencies for the omxplayer-native-build
+------------------------------------------------------
+    sudo apt-get install libavcodec-dev libavformat-dev \
+    libswresample-dev libavfilter-dev libswscale-dev \
+    libpcre3-dev libboost-dev libtheora-dev \
+    libopenjpeg-dev libvorbis-dev git fbset
+
 Downloading omxplayer-native-build
 ----------------------------------
-
     sudo chown pi:pi /usr/local/src
     cd /usr/local/src
     git clone git://github.com/wrightrocket/omxplayer-native-build.git
 
 Compiling omxplayer-native-build
 --------------------------------
-
     cd /usr/local/src/omxplayer-native-build
     make git
     make -f Makefile.ffmpeg
     make
 
-    
-
 Installing omxplayer-native-build
 ---------------------------------
-
-If you have completed compiling omxplayer-native-build, then 
+If you have completed compiling omxplayer-native-build:
 
     make dist
     sudo make install

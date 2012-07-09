@@ -26,8 +26,6 @@ The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/
 
 The Raspberry Pi firmware library is downloaded from it's github repository and used during the build.
 
-The build of ffmpeg using the optimized libraries is performed.
-
 
 Downloading omxplayer-native-build
 ----------------------------------

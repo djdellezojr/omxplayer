@@ -3,16 +3,16 @@ TARGETFS	:=usr/local
 TOOLCHAIN	:=/usr/
 LD			:= $(TOOLCHAIN)/bin/ld
 CC			:= $(TOOLCHAIN)/bin/gcc 
-CXX         		:= $(TOOLCHAIN)/bin/g++ 
-OBJDUMP			:= $(TOOLCHAIN)/bin/objdump
-RANLIB			:= $(TOOLCHAIN)/bin/ranlib
-STRIP			:= $(TOOLCHAIN)/bin/strip
+CXX       	:= $(TOOLCHAIN)/bin/g++ 
+OBJDUMP		:= $(TOOLCHAIN)/bin/objdump
+RANLIB		:= $(TOOLCHAIN)/bin/ranlib
+STRIP		:= $(TOOLCHAIN)/bin/strip
 AR			:= $(TOOLCHAIN)/bin/ar
-CXXCP 			:= $(CXX) -E
+CXXCP 		:= $(CXX) -E
 CFLAGS += -pipe -mfloat-abi=softfp -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog
 
-LDFLAGS			+= -L/lib -L/usr/lib  -L$(BUILDROOT)/firmware/opt/vc/lib -L$(BUILDROOT)/ffpmeg
-INCLUDES		+= -I$(BUILDROOT)/firmware/opt/vc/include/interface/vcos/pthreads \
+LDFLAGS		+= -L/lib -L/usr/lib  -L$(BUILDROOT)/firmware/opt/vc/lib -L$(BUILDROOT)/ffpmeg
+INCLUDES	+= -I$(BUILDROOT)/firmware/opt/vc/include/interface/vcos/pthreads \
 			-I$(BUILDROOT)/firmware/opt/vc/include \
 			-I$(BUILDROOT)/firmware/opt/vc/include/interface/vmcs_host \
 			-I$(BUILDROOT)/ffmpeg \

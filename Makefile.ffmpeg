@@ -35,6 +35,7 @@ configure:
 			--disable-devices \
 			--disable-ffprobe \
 			--disable-ffserver \
+			--disable-ffmpeg \
 			--enable-shared \
 			--enable-postproc \
 			--enable-gpl \

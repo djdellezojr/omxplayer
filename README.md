@@ -1,15 +1,15 @@
-omxplayer-native-build
+omxplayer
 ======================
 
 OMXPlayer is a commandline OMX player for the Raspberry Pi. It was developed as
 a testbed for the XBMC Raspberry PI implementation and is quite handy to use
 standalone. 
 
-omxplayer-native-build is a fork from the original omxplayer located at: 
+This fork originated from the the omxplayer located at: 
 https://github.com/huceke/omxplayer/ and is located at: 
-https://github.com/wrightrocket/omxplayer-native-build. 
+https://github.com/wrightrocket/omxplayer. 
 
-The Makefiles of the omxplayer-native-build project have been
+The Makefiles of the omxplayer project have been
 customized to support building the project on the Raspberry Pi, 
 instead of defaulting to cross-compiling them on another system. 
 
@@ -30,17 +30,17 @@ The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/
 The Raspberry Pi firmware library is downloaded from it's github repository and used during the build.
 
 
-Installing dependencies for the omxplayer-native-build
+Installing dependencies for the omxplayer
 ------------------------------------------------------
     sudo apt-get install libpcre3-dev libboost-dev git fbset
 
-Downloading omxplayer-native-build
+Downloading omxplayer
 ----------------------------------
     sudo chown pi:pi /usr/local/src
     cd /usr/local/src
     git clone git://github.com/wrightrocket/omxplayer.git
 
-Compiling omxplayer-native-build
+Compiling omxplayer
 --------------------------------
     cd /usr/local/src/omxplayer
     make git
@@ -49,21 +49,21 @@ Compiling omxplayer-native-build
     make
     make dist
 
-Installing omxplayer-native-build
+Installing omxplayer
 ---------------------------------
-If you have completed compiling omxplayer-native-build:
+If you have completed compiling omxplayer:
 
     sudo make install
 
-Uninstalling omxplayer-native-build
+Uninstalling omxplayer
 -----------------------------------
-If you have compiled and installed omxplayer-native-build, but not cleaned the build directory:
+If you have compiled and installed omxplayer, but not cleaned the build directory:
 
     sudo make uninstall
     
-Cleaning the omxplayer-native-build
+Cleaning the omxplayer
 -----------------------------------
-If you have completed compiling omxplayer-native-build, and are sure you don't want to uninstall 
+If you have completed compiling omxplayer, and are sure you don't want to uninstall 
 omxplayer without re-compiling it:
     
     make clean

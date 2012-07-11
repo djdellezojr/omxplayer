@@ -32,22 +32,20 @@ The Raspberry Pi firmware library is downloaded from it's github repository and 
 
 Installing dependencies for the omxplayer-native-build
 ------------------------------------------------------
-    sudo apt-get install libavcodec-dev libavformat-dev \
-    libswresample-dev libavfilter-dev libswscale-dev \
-    libpcre3-dev libboost-dev libtheora-dev \
-    libopenjpeg-dev libvorbis-dev git fbset
+    sudo apt-get install libpcre3-dev libboost-dev git fbset
 
 Downloading omxplayer-native-build
 ----------------------------------
     sudo chown pi:pi /usr/local/src
     cd /usr/local/src
-    git clone git://github.com/wrightrocket/omxplayer-native-build.git
+    git clone git://github.com/wrightrocket/omxplayer.git
 
 Compiling omxplayer-native-build
 --------------------------------
-    cd /usr/local/src/omxplayer-native-build
+    cd /usr/local/src/omxplayer
     make git
     make -f Makefile.ffmpeg
+    make -f Makefile.ffmpeg install
     make
     make dist
 
@@ -69,6 +67,7 @@ If you have completed compiling omxplayer-native-build, and are sure you don't w
 omxplayer without re-compiling it:
     
     make clean
+    make git_clean
 
 Using omxplayer-native-build
 ----------------------------

@@ -67,11 +67,11 @@ dist: omxplayer.bin
 	@rm -f omxplayer-dist.tar.gz
 	tar -czf omxplayer-dist.tar.gz usr
 
-git_clean:
+sources-clean:
 	@rm -rf firmware
 	@rm -rf ffmpeg
 
-git:
+sources:
 	git clone https://github.com/raspberrypi/firmware.git
 	git clone git://git.videolan.org/ffmpeg.git ffmpeg;
 	cd ffmpeg; git checkout master; git checkout 13a7bd70c8d94c5a46c14e7ac23a170b77eff52e

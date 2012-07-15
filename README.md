@@ -1,33 +1,34 @@
 omxplayer
-======================
+=========
 
 OMXPlayer is a commandline OMX player for the Raspberry Pi. It was developed as
 a testbed for the XBMC Raspberry PI implementation and is quite handy to use
 standalone. 
 
 This fork originated from the the omxplayer located at: 
-https://github.com/huceke/omxplayer/ and is located at: 
-https://github.com/wrightrocket/omxplayer. 
+https://github.com/huceke/omxplayer/. Below is a list of differences between this native build and it's origin. 
 
-The Makefiles of the omxplayer project have been
+Primarily, the Makefiles of this omxplayer project have been
 customized to support building the project on the Raspberry Pi, 
-instead of defaulting to cross-compiling them on another system. 
+instead of defaulting to cross-compiling them on another system.
 
 Other differences:
 
-The default output is HDMI, so using omxplayer -o hdmi video.mp4, is not necessary,
-just omxplayer video.mp4. On the other hand, if you want audio output from the 
-jack, then you need to use omxplayer -o local video.mp4.
+The default output is HDMI, so using omxplayer -o hdmi video.mp4, is not necessary, just omxplayer video.mp4. 
 
-The default location for the project to be downloaded and built from is /usr/local/src
-on the Raspberry Pi.
+On the other hand, if you want audio output from the jack, then you need to use omxplayer -o local video.mp4.
 
-The default location for the omxplayer script and omxplayer.bin is /usr/local/bin instead
-of /usr/bin.
+The default location for the project to be downloaded and built from is /usr/local/src on the Raspberry Pi.
+
+The default location for the omxplayer script and omxplayer.bin is /usr/local/bin instead of /usr/bin.
 
 The default location for the ffmpeg libraries is /usr/local/lib instead of /usr/lib/omxplayer.
 
 The Raspberry Pi firmware library is downloaded from it's github repository and used during the build.
+
+The required ffmpeg sources are only downloaded once, when you begin building, not for every build.
+
+There is the following additional make commands: install, uninstall, sources, clean-sources.
 
 
 Installing dependencies for the omxplayer
@@ -43,7 +44,7 @@ Downloading omxplayer
 Compiling omxplayer
 --------------------------------
     cd /usr/local/src/omxplayer
-    make git
+    make sources
     make -f Makefile.ffmpeg
     make -f Makefile.ffmpeg install
     make
@@ -67,7 +68,7 @@ If you have completed compiling omxplayer, and are sure you don't want to uninst
 omxplayer without re-compiling it:
     
     make clean
-    make git_clean
+    make clean-sources
 
 Using omxplayer-native-build
 ----------------------------

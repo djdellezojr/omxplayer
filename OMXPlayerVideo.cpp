@@ -526,8 +526,8 @@ bool OMXPlayerVideo::OpenDecoder()
   }
   else
   {
-    printf("Video codec %s width %d height %d profile %d fps %f\n",
-        m_decoder->GetDecoderName().c_str() , m_hints.width, m_hints.height, m_hints.profile, m_fps);
+    //printf("Video codec %s width %d height %d profile %d fps %f\n",
+     //   m_decoder->GetDecoderName().c_str() , m_hints.width, m_hints.height, m_hints.profile, m_fps);
   }
 
   if(m_av_clock)

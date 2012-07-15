@@ -750,6 +750,6 @@ do_exit:
   g_OMX.Deinitialize();
   g_RBP.Deinitialize();
 
-  printf("have a nice day ;)\n");
+  // printf("have a nice day ;)\n");
   return 1;
 }

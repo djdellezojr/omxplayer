@@ -1,7 +1,8 @@
 #!/bin/sh
-
+#PS1='\033[?17;0;127c'
 #mount -t nfs -o rsize=32768,wsize=32768,intr 192.168.10.1:/data/video /media
 
+clear
 OMXPLAYER="./omxplayer.bin"
 FBSET="/usr/sbin/fbset"
 

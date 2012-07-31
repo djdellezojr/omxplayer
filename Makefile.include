@@ -1,3 +1,11 @@
+RASPBIAN=0
+
+ifeq ($(RASPBIAN), 1)
+FLOAT=hard
+else
+FLOAT=softfp
+endif
+
 BUILDROOT	:=/usr/local/src/omxplayer
 TARGETFS	:=usr/local
 TOOLCHAIN	:=/usr/
@@ -9,11 +17,14 @@ RANLIB		:= $(TOOLCHAIN)/bin/ranlib
 STRIP		:= $(TOOLCHAIN)/bin/strip
 AR			:= $(TOOLCHAIN)/bin/ar
 CXXCP 		:= $(CXX) -E
-CFLAGS += -pipe -mfloat-abi=softfp -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog
 
-LDFLAGS		+= -L/lib -L/usr/lib  -L$(BUILDROOT)/firmware/opt/vc/lib -L$(BUILDROOT)/ffpmeg
+
+CFLAGS += -pipe -mfloat-abi=hard -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog -march=armv6zk
+
+LDFLAGS		+= -L$(BUILDROOT)/firmware/opt/vc/lib -L$(BUILDROOT)/ffpmeg -L$(BUILDROOT)/ffpmeg_compiled -L/lib -L/usr/lib  
 INCLUDES	+= -I$(BUILDROOT)/firmware/opt/vc/include/interface/vcos/pthreads \
 			-I$(BUILDROOT)/firmware/opt/vc/include \
 			-I$(BUILDROOT)/firmware/opt/vc/include/interface/vmcs_host \
 			-I$(BUILDROOT)/ffmpeg \
-			-I/usr/include 
+			-I$(BUILDROOT)/ffmpeg_compiled/usr/local/include \
+			-I/usr/include

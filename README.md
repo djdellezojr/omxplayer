@@ -30,6 +30,16 @@ The required ffmpeg sources are only downloaded once, when you begin building, n
 
 There is the following additional make commands: install, uninstall, sources, clean-sources.
 
+It is possible to install a pre-built omxplayer for Raspbian Wheezy and Debian Squeeze.
+
+Please read all the instructions before beginning them. 
+
+Additional details about this project can be found at http://wrightrocket.blogspot.com/2012/08/building-omxplayer-for-raspbian-on.html.
+
+
+Configuring RAM for the build
+------------------------------------------------------
+    sudo rpi-update 240
 
 Installing dependencies for the omxplayer
 ------------------------------------------------------
@@ -56,6 +66,11 @@ If you have completed compiling omxplayer:
 
     sudo make install
 
+If you don't want to build it yourself use:
+    sudo ./install-raspbian-wheezy
+or:
+    sudo ./install-debian-squeeze
+
 Uninstalling omxplayer
 -----------------------------------
 If you have compiled and installed omxplayer, but not cleaned the build directory:
@@ -70,7 +85,11 @@ omxplayer without re-compiling it:
     make clean
     make clean-sources
 
-Using omxplayer-native-build
+Configuring RAM for the player(Use 192 or 128)
+------------------------------------------------------
+    sudo rpi-update 192
+    
+Using omxplayer
 ----------------------------
 
     Usage: omxplayer [OPTIONS] [FILE]

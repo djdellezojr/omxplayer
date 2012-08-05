@@ -4,5 +4,5 @@ then
 	echo This script must be run with sudo or as the root user
 	exit 1
 fi
-tar xf builds/raspbian-wheezy/omxplayer-dist.tar.gz -C /
+tar xf /usr/local/src/omxplayer/builds/raspbian-wheezy/omxplayer-dist.tar.gz -C /
 ldconfig
